@@ -1,0 +1,1196 @@
+/* Header*/
+@font-face{
+    font-family: 'Geometria-Bold';
+    src: url('/fonts/FontsFree-Net-Geometria-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+body{
+
+    background-image: url(../images/inicio/interior_inicio.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.logo img{
+    
+    width: 180px;
+    height: 90px;
+} 
+
+
+.logo{
+    font-size: 24px;
+    color:black;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/*Prueba categorias*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #445372;
+    color: #fff;
+    height: 95px;
+    font-family: 'Poppins', sans-serif;   
+    z-index: 1000;
+
+    
+    
+}
+
+.menu__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.menu__links{
+    height: 100%;
+    transition: transform .5s;
+    display: flex;
+}
+
+.menu__item{
+    list-style: none;
+    position: relative;
+    height: 100%;
+    --clip: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+.menu__item:hover{
+    --clip: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.menu__link{
+    color: #fff;
+    text-decoration: none;
+    padding: 0 30px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.menu__link:hover{
+    background-color: #5e7094;
+}
+
+
+.menu__arrow{
+    transform: var(--transform);
+    transition: transform .5s;
+    display: block;
+    margin-left: 3px;
+}
+
+.menu__nesting{
+    list-style: none;
+    transition:clip-path .5s;
+    clip-path: var(--clip);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: max-content;
+    transform: translateY(100%);
+    background-color: #000;
+    z-index:1;
+    
+}
+
+.menu__link--inside{
+    padding: 30px 100px 30px 20px;
+}
+
+.menu__link--inside:hover{
+    background-color: #798499;
+}
+
+.menu__hamburguer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    cursor: pointer;
+    display: none;
+}
+
+.menu__img{
+    display: block;
+    width: 36px;
+}
+
+@media (max-width:800px){
+    .menu__hamburguer{
+        display: flex;
+    }
+
+    .menu__item{
+        --clip:0;
+        overflow:hidden ;
+    }
+
+    .menu__item--active{
+        --transform: rotate(0);
+        --background: #5e7094;
+    }
+
+    .menu__item--show{
+        background-color: var(--background);
+    }
+
+
+    .menu__links{
+        position: fixed;
+        max-width: 400px;
+        width: 100%;
+        top: 70px;
+        bottom: 0;
+        right: 0;
+        background-color: #000;
+        overflow-y: auto;
+        display: grid;
+        grid-auto-rows: max-content;
+        transform: translateX(100%);
+    }
+
+    .menu__links--show{
+        transform: unset;
+        width: 100%;
+    }
+
+    .menu__link{
+        padding: 25px 0;
+        padding-left: 30px;
+        height: auto;
+    }
+
+    .menu__arrow{
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
+    .menu__nesting{
+        display: grid;
+        position: unset;
+        width: 100%;
+        transform: translateY(0);
+        height: 0;
+        transition: height .3s;
+    }
+
+    .menu__link--inside{
+        width: 90%;
+        margin-left: auto;
+        border-left: 1px solid #798499;
+    }
+}
+     
+
+
+/*Cards*/
+
+ .contenedor-categorias{
+    max-width:1200px;
+    margin: auto;
+    flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 18vh;
+    
+    
+}
+
+
+.card{
+    width: 300px;
+    background-color: white;
+    margin: 10px;
+    transition: transform 0.8s ease;
+    border-radius: 15px 15px 15px 15px;
+    
+    
+}
+
+.card:hover{
+    transform: scale(1.10);
+    filter: drop-shadow( 5px 15px 15px rgba(0,0,0,0.5)); 
+}
+
+
+.card .cover{
+    position: relative;
+    top: 18px; 
+   overflow: hidden;
+}
+
+
+.card .cover img{
+    width: 250px;
+    transition: 400ms;
+    border-radius: 20px 20px 20px 20px ;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+
+.card .back-cover{
+    width: 100%;
+    height: 450px;
+    border-radius: 30px;
+    background-size: cover; 
+}
+
+
+
+.card .descripcion{
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 20px 20px 20px 20px ;
+    text-align: justify;
+    text-align: center;
+    display: block;
+    
+    
+
+}
+
+
+.card .descripcion h3{
+    margin-top: 10px;
+    flex-direction: column;
+
+}
+
+
+.card .descripcion p{
+    margin-top: 10px;
+    flex-direction: column;
+
+}
+
+
+.boton{
+    padding: 10px 40px;
+    margin-top: 20px;
+    border: 0;
+    background-color: gray;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 300ms;
+    display: inline-block;
+    
+    
+
+}
+
+
+.card .descripcion .boton:hover{
+    background:rgb(87, 85, 85);
+
+} 
+
+/*slider*/
+
+.mySlides {
+    display: none
+    
+
+
+    
+    
+}
+
+.mySlides img {
+    position:relative;
+    vertical-align: middle;
+    margin: 25px;
+}
+
+.mySlides .fade {
+    display: block;
+}
+
+#slider2 .mySlides {
+    display: none;
+}
+
+#slider2 .mySlides .fade {
+    display: block;
+}
+
+
+.slideshow-container {
+  width: 1100px;
+  height: 400px;
+  position: relative;
+  margin: 60px;
+  background-color: #B4A59F;
+  left: 10%;
+  top: 15vh;
+  
+
+  
+ 
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: rgb(31, 90, 186);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev{
+   left: 25px;
+  }
+  
+  
+.next {
+    right: 575px;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+
+
+.dot{
+  cursor: pointer; 
+  height: 15px;
+  width: 15px;
+  margin:-50 2px;
+  background-color: #00A0CF;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  left: 220px;
+  position: relative;
+  top: -10px;
+
+}
+
+
+ .dot:hover {
+  background-color: #717171;
+  margin-top: 0px;
+ 
+  
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+#slider4{
+    height: 54vh;
+}
+/*@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+.dot{
+ height: 10px;
+  width: 10px;
+}
+}
+
+@media only screen and (max-width: 500px) {
+  .prev, .next,.text {font-size: 14px}
+}*/
+
+
+
+
+.banner{
+    margin-left: 2vw;
+    width: 96vw;
+    height: 50vh;
+    background-image: url(/images/inicio/Grey\ Real\ Estate\ Minimalist\ LinkedIn\ Banner.png);
+    background-size: cover;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 5vh;
+    top: 3vh;
+}
+
+
+.info1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+     /* Ajusta según sea necesario */
+    left: 50vw;
+    display: flex;
+    align-items: center;
+}
+
+.info1 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info1 li {
+    
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info1 img {
+    margin-left: 0vw;
+    height: 5vh;
+    width: 5vw;
+}
+
+.info1 span{
+    position: absolute;
+    list-style-type: none;
+    margin-top: 1vh;
+    font-size: large;
+}
+
+.info1 article .titulo{
+    font-size: 30px; 
+    line-height: 30px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: 10vw;
+    margin-top: -11vh;
+}
+
+.info1 article .precio{
+    font-size: 20px;
+    line-height: 25px;
+    color: #592f26;
+    font-family: 'Geometria-Bold';
+    font-weight: normal;
+    text-align: center;
+    margin-left: 10vw;
+    margin-top: 4vh;
+
+}
+
+.info1 article .mensualidades{
+    font-size: 18px;
+    line-height: 20px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-align: center;
+    margin-top: 3vh;
+    margin-left: 10vw;
+}
+
+.info1 article .detalles{
+    position: absolute;
+    text-align: justify;
+    font-size:large;
+    line-height: 20px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-align: center;
+    margin-top: 3vh;
+    margin-left: 7vw;
+}
+
+
+
+
+
+.info2 {
+    position: absolute;
+    top: 115vh;
+    right: 0;
+    bottom: 0;
+     /* Ajusta según sea necesario */
+    left: 50vw;
+    display: flex;
+    align-items: center;
+}
+
+.info2 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info2 li {
+    
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info2 img {
+    margin-left: 0vw;
+    height: 5vh;
+    width: 5vw;
+}
+
+.info2 span{
+    position: absolute;
+    list-style-type: none;
+    margin-top: 1vh;
+    font-size: large;
+}
+
+
+.info2 article .titulo{
+    font-size: 30px; 
+    line-height: 30px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: 10vw;
+    margin-top: -11vh;
+}
+
+
+.info2 article .precio_antes{
+    font-size: 20px;
+    line-height: 25px;
+    color: #592f26;
+    font-family: 'Geometria-Bold';
+    font-weight: normal;
+    text-align: center;
+    margin-left: 10vw;
+    margin-top: 4vh;
+}
+.info2 article .precio{
+    font-size: 20px;
+    line-height: 25px;
+    color: #592f26;
+    font-family: 'Geometria-Bold';
+    font-weight: normal;
+    text-align: center;
+    margin-left: 10vw;
+    margin-top: 2vh;
+
+}
+
+.info2 article .mensualidades{
+    font-size: 18px;
+    line-height: 20px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-align: center;
+    margin-top: 3vh;
+    margin-left: 10vw;
+}
+
+.info2 article .detalles{
+    position: absolute;
+    text-align: justify;
+    font-size:large;
+    line-height: 20px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-align: center;
+    margin-top: 3vh;
+    margin-left: 7vw;
+}
+
+
+.info3 {
+    position: absolute;
+    top: 180vh;
+    right: 0;
+    bottom: 0;
+     /* Ajusta según sea necesario */
+    left: 50vw;
+    display: flex;
+    align-items: center;
+}
+
+.info3 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info3 li {
+    
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info3 img {
+    margin-left: 0vw;
+    height: 5vh;
+    width: 5vw;
+}
+
+.info3 span{
+    position: absolute;
+    list-style-type: none;
+    margin-top: 1vh;
+    font-size: large;
+}
+
+
+.info3 article .titulo{
+    font-size: 30px; 
+    line-height: 30px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: 8vw;
+    margin-top: -11vh;
+}
+
+.info3 article .precio{
+    font-size: 20px;
+    line-height: 25px;
+    color: #41261b;
+    font-family: 'Geometria-Bold';
+    font-weight: normal;
+    text-align: center;
+    margin-left: 10vw;
+    margin-top: 4vh;
+
+}
+
+.info3 article .mensualidades{
+    font-size: 18px;
+    line-height: 20px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-align: center;
+    margin-top: 3vh;
+    margin-left: 10vw;
+}
+
+.info3 article .detalles{
+    position: absolute;
+    text-align: justify;
+    font-size:large;
+    line-height: 20px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-align: center;
+    margin-top: 3vh;
+    margin-left: 7vw;
+}
+.info4 {
+    position: absolute;
+    top: 242vh;
+    right: 0;
+    bottom: 0;
+     /* Ajusta según sea necesario */
+    left: 50vw;
+    display: flex;
+    align-items: center;
+}
+
+.info4 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info4 li {
+    
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info4 img {
+    margin-left: 0vw;
+    height: 5vh;
+    width: 5vw;
+}
+
+.info4 span{
+    position: absolute;
+    list-style-type: none;
+    margin-top: 1vh;
+    font-size: large;
+}
+
+.info4 article .titulo{
+    font-size: 30px; 
+    line-height: 30px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: 8vw;
+    margin-top: -11vh;
+}
+
+.info4 article .precio{
+    font-size: 20px;
+    line-height: 25px;
+    color: #592f26;
+    font-family: 'Geometria-Bold';
+    font-weight: normal;
+    text-align: center;
+    margin-left: 10vw;
+    margin-top: 4vh;
+
+}
+
+.info4 article .mensualidades{
+    font-size: 18px;
+    line-height: 20px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-align: center;
+    margin-top: 3vh;
+    margin-left: 10vw;
+}
+
+.info4 article .detalles{
+    position: absolute;
+    text-align: justify;
+    font-size:large;
+    line-height: 20px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-align: center;
+    margin-top: 3vh;
+    margin-left: 7vw;
+}
+
+ 
+
+
+.content #mainflex{
+    position: absolute;
+    background: #B4A59F;
+
+    
+
+    height: 56.5vh;
+    width: 98vw;
+    margin-top: 15vh;
+    left: 1vw;
+    border-radius: 15px;
+    border: #000;
+    
+}
+ .content #flex1 img{
+    position: absolute;
+    width: 45vw;
+    height: 50vh;
+    margin-top: 3vh;
+    margin-left: 1.5vw;
+}
+
+.content #flex1 img:hover{
+    height:52vh;
+    width:46vw;
+
+    transition: all 0.4s ease-in-out;
+}
+
+
+
+
+.content #flex2 img{
+   
+   margin-left: 48vw;
+   margin-top: 3vh;
+   height: 24vh;
+   width: 24vw;
+}
+
+.content #flex2 img:hover{
+    height: 24.5vh;
+    width: 24.5vw;
+    transition: all 0.4s ease-in-out;
+}    
+
+
+.content #flex3 img{
+    position: absolute;
+    
+   margin-left: 73vw;
+   margin-top: -24.5vh;
+   height: 24vh;
+   width: 24vw;
+}
+
+.content #flex3 img:hover{
+    height: 24.5vh;
+    width: 24.5vw;
+    transition: all 0.4s ease-in-out;
+}
+
+.content #flex4 img{
+    margin-left: 48vw;
+    margin-top: 1.5vh;
+   height: 24vh;
+   width: 24vw;
+}
+
+.content #flex4 img:hover{
+    height: 24.5vh;
+    width: 24.5vw;
+    transition: all 0.4s ease-in-out;
+}
+
+.content #flex5 img{
+    position: absolute;
+    margin-left: 73vw;
+    margin-top: -24.5vh;
+   height: 24vh;
+   width: 24vw;
+}
+.content #flex5 img:hover{
+    height: 25vh;
+    width: 25vw;
+    transition: all 0.4s ease-in-out;
+}
+
+.comercial1{
+    position: absolute;
+    background: #606c88;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    margin-top: 73vh;
+    margin-left: 1vw;
+    width: 47vw;
+    height: 34vh;
+    border-radius: 15px;
+}
+
+.comercial1 article .titulo{
+    position: absolute;
+    font-size: 30px; 
+    line-height: 30px;
+    color: #222;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: 8vw;
+    margin-top: 7vh;
+}
+
+
+.comercial1 article .precio{
+    position: absolute;
+    font-size:xx-large;
+    line-height: 25px;
+    color: #D3AE63;
+    font-family: 'Geometria-Bold';
+    font-weight: normal;
+    text-align: center;
+    margin-left: 9vw;
+    margin-top: 15vh;
+
+}
+
+.comercial1 article .detalles{
+    position: absolute;
+    text-align: justify;
+    font-size:medium;
+    line-height: 20px;
+    color: whitesmoke;
+    font-family: 'Geometria-Medium';
+    font-weight: normal;
+    text-align: center;
+    margin-top: 22vh;
+    margin-left: 7vw;
+}
+
+.svgcomercial img{
+    position: relative;
+    height: 5vh;
+    width: 5vw;
+    top: 27vh;
+    left: 14vw;
+}
+
+.svgcomercial span{
+    position: relative;
+    left: 22vw;
+    font-size: large;
+    top: 25vh;
+}
+.comercialmap span{
+    position: absolute;
+    background-color: #B4A59F;
+    top: 72vh;
+    margin-top: 1vh;
+    color: #B4A59F;
+    left: 50vw;
+    width: 48vw;
+    height: 34vh;
+    border-radius: 15px;
+
+}
+
+.comercialmap iframe{
+    position: relative;
+    top: 73vh;
+    margin-top: 1vh;
+    left: 50vw;
+    width: 46vw;
+    height: 32vh;
+    margin-left: 1vw;
+    margin-right: -3vw;
+    border-radius: 15px;
+
+}
+
+.content__mall1{
+    position: absolute;
+    background: #5A6683;
+    border-radius: 14px;
+    box-shadow: 0 5px 7px 0 #415364;
+    cursor: pointer;
+    border: none;
+    margin: auto;
+    transition: all .6s;
+    height: 65vh;
+    width: 30vw;
+    top: 115vh;
+    left: 1%;
+}
+
+
+
+
+.content__mall1 #imgcontent{
+    position: relative;
+    width: 100%;
+    height: 32.5vh;
+    object-fit: cover;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.content__mall1 .title h2{
+    font-size: 1.5em;
+    margin-top: 2vh;
+    color: white;
+    font-family: 'Geometria-Medium';
+    margin-left: 11vw;
+}
+
+
+.content__mall1 .precio{
+    font-size: large;
+    font-family: 'Geometria-Bold';
+    margin-top: 2vh;
+    margin-left: 20vh;
+    color: #D3AE63;
+}
+
+.content__mall1 .details p{ 
+    font-size: medium;
+    margin-top: 2vh;
+    color: black;
+    font-family: 'Geometria-Medium';
+    justify-content: center;
+}
+
+
+.content__mall1 .icons img{
+    position: relative;
+    margin-left: 8vw;
+    margin-top: 2vh;
+    height: 5vh;
+    width: 5vw;
+}
+
+.content__mall1 .icons span{
+    position: absolute;
+    margin-top: 2.5vh;
+}
+
+
+
+.content__mall2{
+    position: absolute;
+    background: #5A6683;
+    border-radius: 14px;
+    box-shadow: 0 5px 7px 0 #415364;
+    cursor: pointer;
+    border: none;
+    margin: auto;
+    transition: all .6s;
+    height: 65vh;
+    width: 30vw;
+    top: 115vh;
+    left: 34.5vw;
+}
+
+
+
+
+.content__mall2 #imgcontent{
+    position: relative;
+    width: 100%;
+    height: 32.5vh;
+    object-fit: cover;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.content__mall2 .title h2{
+    font-size: 1.5em;
+    margin-top: 2vh;
+    color: white;
+    font-family: 'Geometria-Medium';
+    margin-left: 11vw;
+}
+
+
+.content__mall2 .precio{
+    font-size: large;
+    font-family: 'Geometria-Bold';
+    margin-top: 2vh;
+    margin-left: 20vh;
+    color: #D3AE63;
+}
+
+.content__mall2 .details p{ 
+    font-size: medium;
+    margin-top: 2vh;
+    color: black;
+    font-family: 'Geometria-Medium';
+    justify-content: center;
+}
+
+
+.content__mall2 .icons img{
+    position: relative;
+    margin-left: 8vw;
+    margin-top: 2vh;
+    height: 5vh;
+    width: 5vw;
+}
+
+.content__mall2 .icons span{
+    position: absolute;
+    margin-top: 2.5vh;
+}
+
+
+
+
+
+.content__mall3{
+    position: absolute;
+    background: #5A6683;
+    border-radius: 14px;
+    box-shadow: 0 5px 7px 0 #415364;
+    cursor: pointer;
+    border: none;
+    margin: auto;
+    transition: all .6s;
+    height: 65vh;
+    width: 30vw;
+    top: 115vh;
+    left: 68vw;
+}
+
+
+
+
+.content__mall3 #imgcontent{
+    position: relative;
+    width: 100%;
+    height: 32.5vh;
+    object-fit: cover;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.content__mall3 .title h2{
+    font-size: 1.5em;
+    margin-top: 2vh;
+    color: white;
+    font-family: 'Geometria-Medium';
+    margin-left: 11vw;
+}
+
+
+.content__mall3 .precio{
+    font-size: large;
+    font-family: 'Geometria-Bold';
+    margin-top: 2vh;
+    margin-left: 20vh;
+    color: #D3AE63;
+}
+
+.content__mall3 .details p{ 
+    font-size: medium;
+    margin-top: 2vh;
+    color: black;
+    font-family: 'Geometria-Medium';
+    justify-content: center;
+}
+
+
+.content__mall3 .icons img{
+    position: relative;
+    margin-left: 8vw;
+    margin-top: 2vh;
+    height: 5vh;
+    width: 5vw;
+}
+
+.content__mall3 .icons span{
+    position: absolute;
+    margin-top: 2.5vh;
+}

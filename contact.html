@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href">
+</head>
+<body>
+        <nav class="menu">
+            <section class="menu__container">
+                <a href="index.html" class="logo"><img src="images/inicio/logo_inicio2.png" alt=""></a>
+
+                <ul class="menu__links">
+                    <li class="menu__item">
+                        <a href="/index.html" class="menu__link"><img src="assets/inicio.svg" class="menu__arrow">Inicio</a>
+                    </li>
+
+                    <li class="menu__item  menu__item--show">
+                        <a class="menu__link"><img src="assets/categorias.svg" class="menu__arrow">Categorias</a>
+        
+                        <ul class="menu__nesting">
+                            <li class="menu__inside">
+                                <a href="/html/residenciales.html" class="menu__link menu__link--inside">Residenciales</a>
+                            </li>
+                            <li class="menu__inside">
+                                <a href="/html/comerciales.html" class="menu__link menu__link--inside">Comerciales</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+        
+                    <li class="menu__item">
+                        <a href="success.html" class="menu__link"><img src="assets/contacto.svg" class="menu__arrow">Registro</a>
+                    </li>
+
+
+    
+                
+                </ul>
+
+                    <div class="menu__hamburguer">
+                        <img src="assets/menu.svg" class="menu__img">
+                    </div>
+            </section>    
+        </nav>
+
+
+
+        <section class="form_wrap">
+
+            <section class="contact_info">
+                <section class="info_title">
+                    <span class="fa fa-user-circle"></span>
+                    <h2>INFORMACION<br>DE CONTACTO</h2>
+                </section>
+                <section class="info_items">
+                    <p><span class="fa fa-envelope"></span> info.patrimonium@gmail.com</p>
+                    <p><span class="fa fa-mobile"></span> +1(555) 555-223-156</p>
+                </section>
+            </section>
+    
+            <form action="datos.php" method="post" class="form_contact">
+                <h2>Envia un mensaje</h2>
+                <div class="user_info">
+                    <label for="names">Nombre</label>
+                    <input name="nombre" type="name" id="Nombre">
+                    
+                    <label for="phone">Telefono / Celular</label>
+                    <input name="telefono" type="tel" id="phone">
+    
+                    <label for="email">Correo electronico </label>
+                    <input name="correo" type="email" id="email">
+    
+                    <label for="mensaje">Mensaje </label>
+                    <textarea name="mensaje" id="mensaje"></textarea>
+    
+
+                </div>
+
+                <select name="metodo" id="metodo">
+                    <option value="" disabled selected>Quiero ser contactado por:</option>
+                    <option value="correo">Correo</option>
+                    <option value="telefono">Telefono</option>
+                    <option value="whatsapp">Whatsapp</option>
+                </select>
+
+                <select name="interes" id="interes">
+                    <option value="" disabled selected>En qué estas interesado?</option>
+                    <option value="Residenciales">Residenciales</option>
+                    <option value="Comerciales">Comerciales</option>
+                    <option value="Industriales">Industriales</option>
+                </select>
+
+                <button type="submit" value="Enviar Mensaje" id="btnSend">Enviar Datos</button>
+            </form>
+            
+        </section>
+
+
+
+
+
+
+
+
+
+
+          <script src="../main.js"></script>
+          
+</body>
+</html> 
